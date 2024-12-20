@@ -1,5 +1,4 @@
 # Logs
-logs
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -11,7 +10,6 @@ lerna-debug.log*
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # Runtime data
-pids
 *.pid
 *.seed
 *.pid.lock
@@ -93,16 +91,12 @@ dist
 
 # Gatsby files
 .cache/
-# Comment in the public line in if your project uses Gatsby and not Next.js
-# https://nextjs.org/blog/next-9-1#public-directory-support
-# public
 
 # vuepress build output
 .vuepress/dist
 
 # vuepress v2.x temp and cache directory
 .temp
-.cache
 
 # Docusaurus cache and generated files
 .docusaurus
@@ -128,3 +122,70 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# macOS
+.DS_Store
+
+# Custom entries
+.idea
+.github-access-token
+
+# Kitchen sink build output
+kitchen-sink/vue/dist
+kitchen-sink/react/dist
+kitchen-sink/svelte/dist
+
+# Packages and build artifacts
+packages/*.zip
+packages/*.tar.gz
+
+# Core package outputs
+packages/core/**/*.js
+packages/core/**/*.css
+packages/core/**/*.less
+packages/core/**/*.ts
+packages/core/**/*.map
+packages/core/components
+packages/core/modules
+packages/core/utils
+
+build/core/**/*.js
+build/core/**/*.css
+build/core/**/*.less
+build/core/**/*.ts
+build/core/**/*.map
+build/core/components
+build/core/modules
+build/core/utils
+
+# React package outputs
+packages/react/**/*.js
+packages/react/**/*.ts
+packages/react/components
+build/react/**/*.js
+build/react/**/*.ts
+build/react/components
+
+# Svelte package outputs
+packages/svelte/**/*.js
+packages/svelte/**/*.ts
+packages/svelte/**/*.svelte
+packages/svelte/components
+build/svelte/**/*.js
+build/svelte/**/*.ts
+build/svelte/**/*.svelte
+build/svelte/components
+
+# Vue package outputs
+packages/vue/**/*.js
+packages/vue/**/*.ts
+packages/vue/components
+build/vue/**/*.js
+build/vue/**/*.ts
+build/vue/components
+
+# Vue temp files
+src/vue-temp/*.js
+
+# Font files
+woff2/

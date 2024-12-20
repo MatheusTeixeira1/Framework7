@@ -1,0 +1,18 @@
+{
+  "cwd": "D:\\Progamacao\\Repositorios\\Framework7\\Projetos\\1° Projeto - Hello World\\Hello World",
+  "type": [
+    "web"
+  ],
+  "name": "Hello World",
+  "framework": "core",
+  "template": "single-view",
+  "bundler": "vite",
+  "cssPreProcessor": false,
+  "theming": {
+    "customColor": false,
+    "color": "#007aff",
+    "darkMode": false,
+    "iconFonts": true
+  },
+  "customBuild": false
+}
