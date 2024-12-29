@@ -1,0 +1,84 @@
+<template>
+  <div class="page" data-name="home">
+    <!-- Top Navbar -->
+    <div class="navbar navbar-large">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner">
+        <div class="left">
+          <a href="#" class="link icon-only panel-open" data-panel="left">
+            <i class="icon f7-icons if-not-md">menu</i>
+            <i class="icon material-icons if-md">menu</i>
+          </a>
+        </div>
+        <div class="title sliding">Navegação</div>
+        <div class="right">
+          <a href="#" class="link icon-only panel-open" data-panel="right">
+            <i class="icon f7-icons if-not-md">menu</i>
+            <i class="icon material-icons if-md">menu</i>
+          </a>
+        </div>
+        <div class="title-large">
+          <div class="title-large-text">Navegação</div>
+        </div>
+      </div>
+    </div>
+    <!-- Toolbar-->
+    <div class="toolbar toolbar-bottom">
+      <div class="toolbar-inner">
+        <a href="#" class="link">Left Link</a>
+        <a href="#" class="link">Right Link</a>
+      </div>
+    </div>
+    <!-- Scrollable page content-->
+    <div class="page-content">
+      <div class="block">
+        <p>Esta aplicação será utilizada para compreender o funcionamento de rotas no framework7.</p>
+      </div>
+      <div class="block-title">Navigation</div>
+      <div class="list list-strong inset list-dividers-ios">
+        <ul>
+          <li>
+            <a href="/oqueSao/" class="item-content item-link">
+              <div class="item-inner">
+                <div class="item-title">Oque são rotas?</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="/comoFunciona/" class="item-content item-link">
+              <div class="item-inner">
+                <div class="item-title">Como funciona?</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="/conclusao/" class="item-content item-link">
+              <div class="item-inner">
+                <div class="item-title">Conclusão e Revisão</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="/exemploBeforeEnter/" class="item-content item-link">
+              <div class="item-inner">
+                <div class="item-title">Exemplo pratico de BeforeEnter.</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="/exemploBeforeLeave/" class="item-content item-link">
+              <div class="item-inner">
+                <div class="item-title">Exemplo pratico de BeforeLeave.</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default () => {
+  return $render;
+}
+</script>

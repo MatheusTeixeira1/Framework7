@@ -1,0 +1,178 @@
+<template>
+    <div class="page" data-name="about">
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner sliding">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Oque são rotas?</div>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="block-title">Conclusão</div>
+            <div class="block">
+                <p>
+                    O sistema de rotas no Framework7 é extremamente poderoso e flexível, permitindo que desenvolvedores
+                    gerenciem a navegação de forma eficiente. Usando configurações simples, é possível criar rotas para
+                    páginas estáticas, páginas dinâmicas com parâmetros e até mesmo configurar comportamentos avançados
+                    como autenticação e carregamento de dados. Essa funcionalidade é essencial para criar aplicativos
+                    bem estruturados e com boa experiência de navegação.
+                </p>
+
+                <h3>Resumo: Rotas no Framework7</h3>
+                <ul style="display: flex; flex-direction: column; gap: 16px;">
+                    <li>
+                        O que são?
+                        <ul>
+                            <li>
+                                Rotas são usadas para controlar a navegação entre páginas ou telas no aplicativo.
+                            </li>
+                            <li>
+                                Elas conectam URLs ou caminhos específicos a conteúdos (páginas HTML, componentes ou
+                                ações).
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Tipos de Rotas:
+                        <ul>
+                            <li>
+                                Estáticas: Associam URLs fixas a páginas ou componentes.
+                            </li>
+                            <li>
+                                Dinâmicas: Permitem passar parâmetros na URL para conteúdo personalizado (ex.:
+                                /profile/:id/).
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Definição de Rotas:
+                        <ul>
+                            <li>
+                                Configuradas em um array de objetos JavaScript dentro do parâmetro routes.
+                            </li>
+                            <li>
+                                Cada rota tem propriedades como:
+                                <ul>
+                                    <li>
+                                        path: Caminho da URL.
+                                    </li>
+                                    <li>
+                                        url: Caminho para a página HTML estática.
+                                    </li>
+                                    <li>
+                                        componentUrl: Caminho para um componente dinâmico.
+                                    </li>
+                                    <li>
+                                        beforeEnter/beforeLeave: Callbacks para executar ações antes de entrar ou sair
+                                        da rota.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Exemplo básico de rota:
+                        <div
+                            style="padding: 16px; background-color: rgb(36, 36, 36); width: fit-content; color: white; border-radius: 4px;">
+                            <pre>
+                                <code>
+const routes = [
+{
+ path: '/',
+ url: './index.html' 
+},
+{
+ path: '/about/',
+ url: './pages/about.html'
+},
+{
+ path: '/profile/:id/',
+ componentUrl: './pages/profile.html' 
+},
+];
+                                </code>
+                            </pre>
+                        </div>
+                    </li>
+                    <li>
+                        Como Navegar entre Rotas:
+                        <ul>
+                            <li>
+                                Links no HTML:
+                                <div
+                                    style="padding: 16px; background-color: rgb(36, 36, 36); width: fit-content; color: white; border-radius: 4px;">
+                                    <pre>
+                                        <code>
+href="/about/"
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                            <li>
+                                Programação com JavaScript:
+                                <div
+                                    style="padding: 16px; background-color: rgb(36, 36, 36); width: fit-content; color: white; border-radius: 4px;">
+                                    <pre>
+                                        <code>
+app.router.navigate('/about/');
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Rotas Dinâmicas:
+                        <ul>
+                            <li>
+                                Permitem carregar conteúdo com base em parâmetros.
+                            </li>
+                            <li>
+                                Exemplo:
+                                <div
+                                    style="padding: 16px; background-color: rgb(36, 36, 36); width: fit-content; color: white; border-radius: 4px;">
+                                    <pre>
+                                        <code>
+{
+    path: '/user/:userId/',
+    async: function ({ to, resolve }) {
+        const userId = to.params.userId;
+        const user = await fetchUserData(userId);
+        resolve({ componentUrl: './pages/user.html', props: { user } });
+    },
+}                                              
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Callbacks:
+                        <ul>
+                            <li>
+                                beforeEnter: Ações antes de entrar na rota.
+                            </li>
+                            <li>
+                                beforeLeave: Ações antes de sair da rota.
+                            </li>
+                            <li>
+                                Podem ser usadas para validação ou redirecionamento.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+    export default () => {
+        return $render;
+    };
+</script>

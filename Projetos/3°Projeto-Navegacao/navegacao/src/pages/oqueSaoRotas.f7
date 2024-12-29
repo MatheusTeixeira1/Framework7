@@ -1,0 +1,85 @@
+<template>
+  <div class="page" data-name="about">
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="if-not-md">Back</span>
+          </a>
+        </div>
+        <div class="title">Oque são rotas?</div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="block-title">Rotas</div>
+      <div class="block">
+        <p>As rotas são definições que conectam URLs (ou caminhos específicos) a páginas, componentes ou ações dentro de
+          um aplicativo. Em outras palavras, elas mapeiam uma URL específica para o conteúdo que será exibido ou
+          executado quando o usuário navegar para aquela URL.</p>
+        <p>
+
+          No Framework7, rotas são o mecanismo usado para gerenciar a navegação entre diferentes páginas ou telas de um
+          aplicativo. Elas conectam URLs ou caminhos específicos a conteúdos (como páginas HTML ou componentes) que
+          serão exibidos quando o usuário acessar essas URLs.
+        </p>
+        <p>
+          As rotas permitem criar uma estrutura organizada para o aplicativo, facilitando o controle da navegação. No
+          Framework7, cada rota define o que deve acontecer quando o usuário acessa um determinado caminho, seja
+          exibindo uma página, carregando dados dinâmicos ou executando uma ação específica.
+        </p>
+        <p>Por exemplo, se o usuário navegar para uma URL como /sobre/, o Framework7 pode exibir a página
+          correspondente, que pode ser definida em um arquivo HTML ou gerada dinamicamente.
+        </p>
+        <p>
+          Essas rotas são configuradas em uma lista de objetos JavaScript camada ROUTES e permitem tanto navegação
+          estática quanto
+          dinâmica, o que as torna flexíveis para diferentes tipos de aplicativos, desde sites simples até aplicativos
+          móveis complexos.
+        </p>
+        <p>
+        <h3>Exemplo do arquivo routes.js</h3>
+        <div style="padding: 16px; background-color: rgb(36, 36, 36); width: fit-content; color: white; border-radius: 4px;">
+          <pre>
+            <code>
+import HomePage from '../pages/home.f7';
+import OqueSaoRotasPage from '../pages/oqueSaoRotas.f7';
+import ComoFuncionaPage from '../pages/comoFunciona.f7';
+import NotFoundPage from '../pages/404.f7';
+
+var routes = [
+  {
+    path: '/',
+    component: HomePage,
+  },
+  {
+    path: '/oqueSao/',
+    component: OqueSaoRotasPage,
+  },
+  {
+    path: '/comoFunciona/',
+    component: ComoFuncionaPage,
+  },
+  {
+    path: '(.*)',
+    component: NotFoundPage,
+  },
+  
+];
+
+export default routes;
+            </code>
+          </pre>
+        </div>
+        </p>
+
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  export default () => {
+    return $render;
+  };
+</script>

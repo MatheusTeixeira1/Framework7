@@ -1,0 +1,193 @@
+<template>
+  <div class="page" data-name="about">
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="if-not-md">Back</span>
+          </a>
+        </div>
+        <div class="title">Oque são rotas?</div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="block-title">Rotas</div>
+      <div class="block">
+        <p>
+          No Framework7, as rotas são usadas para controlar a navegação entre as páginas do aplicativo. Elas funcionam
+          mapeando caminhos (URLs) para conteúdos específicos, como arquivos HTML, componentes ou ações programadas. O
+          sistema de rotas é um dos pilares do Framework7, garantindo que a navegação seja fluida e bem organizada.
+        </p>
+        <p>
+        <h3>
+          Como funciona o sistema de rotas no Framework7?
+        </h3>
+        O Framework7 utiliza um sistema de rotas baseado em uma configuração de objetos JavaScript, onde cada objeto
+        representa uma rota. Quando um usuário acessa um caminho específico, o Framework7 verifica a lista de rotas
+        configuradas e carrega o conteúdo correspondente, seja uma página estática, um componente ou um conteúdo
+        gerado dinamicamente.
+        </p>
+        <h3>1. Definindo Rotass</h3>
+        <div style="padding-left: 16px;">
+
+          <p>
+            As rotas são configuradas no momento da inicialização do aplicativo, dentro do objeto
+            <strong>routes</strong>. Por exemplo:
+          </p>
+          <div
+            style="padding: 16px; background-color: rgb(36, 36, 36); width: fit-content; color: white; border-radius: 4px;">
+            <pre>
+            <code>
+              const routes = [
+              {
+                path: '/', // Caminho para a página inicial
+                url: './index.html', // Página estática
+              },
+              {
+                path: '/about/', // Caminho para a página "Sobre"
+                url: './pages/about.html', // Página HTML associada
+              },
+              {
+                path: '/profile/:id/', // Rota dinâmica para perfis
+                componentUrl: './pages/profile.html', // Página dinâmica
+              },
+              {
+                path: '/home/',
+                component: HomePageComponent, // Referência a um componente JS
+              },
+              ];    
+              
+              export default routes;        
+            </code>
+          </pre>
+          </div>
+          <p>
+            Essas rotas são então passadas para o Framework7 na configuração principal, o arquivo
+            <strong>app.js</strong>:
+          </p>
+          <div
+            style="padding: 16px; background-color: rgb(36, 36, 36); width: fit-content; color: white; border-radius: 4px;">
+            <pre>
+          <code>
+            import routes from './routes.js';
+            
+            const app = new Framework7({
+              root: '#app',
+              routes: routes,
+            });                    
+          </code>
+        </pre>
+          </div>
+        </div>
+        <h3>2. Utilizando as Rotas</h3>
+        <div style="padding-left: 16px;">
+          <p>
+            A navegação pode ser feita de várias maneiras:
+          </p>
+          <h3>Pelo atributo <strong>href</strong> de um link "a"</h3>
+          <div
+            style="padding: 16px; background-color: rgb(36, 36, 36); width: fit-content; color: white; border-radius: 4px;">
+            <pre>
+              <code>
+                href="/about/"
+              </code>
+            </pre>
+          </div>
+          <h3>Ou por meio do JavaScript</h3>
+          <div
+            style="padding: 16px; background-color: rgb(36, 36, 36); width: fit-content; color: white; border-radius: 4px;">
+            <pre>
+              <code>
+                app.router.navigate('/about/');
+              </code>
+            </pre>
+          </div>
+
+        </div>
+        <h3>3. Rotas dinamicas</h3>
+        <div style="padding-left: 16px;">
+          <p>
+            Rotas dinâmicas permitem criar páginas personalizadas com base em parâmetros. Por exemplo:
+          </p>
+          <div
+            style="padding: 16px; background-color: rgb(36, 36, 36); width: fit-content; color: white; border-radius: 4px;">
+            <pre>
+              <code>
+{
+  path: '/user/:userId/',
+  async: function ({ router, to, resolve }) {
+    const userId = to.params.userId; // Obter o ID do usuário da URL
+    const userData = await fetchUserData(userId); // Buscar dados do usuário (exemplo)
+    resolve({
+      componentUrl: './pages/user.html', // Página a ser carregada
+      props: { user: userData }, // Passar dados para a página
+    });
+  },
+}
+              </code>
+            </pre>
+          </div>
+        </div>
+        <h3>4. Callbacks de Rota</h3>
+        <div style="padding-left: 16px;">
+          <p>
+            Você pode usar callbacks como beforeEnter e beforeLeave para executar ações ao entrar ou sair de uma rota:
+          </p>
+          <div
+            style="padding: 16px; background-color: rgb(36, 36, 36); width: fit-content; color: white; border-radius: 4px;">
+            <pre>
+              <code>
+{
+  path: '/dashboard/',
+  url: './pages/dashboard.html',
+  beforeEnter: function (routeTo, routeFrom, resolve, reject) {
+    if (userLoggedIn) {
+      resolve(); // Permitir acesso
+    } else {
+      reject(); // Bloquear acesso
+      app.router.navigate('/login/'); // Redirecionar para login
+    }
+  },
+}                
+              </code>
+            </pre>
+          </div>
+
+        </div>
+        <h3>4. Callbacks de Rota</h3>
+        <div style="padding-left: 16px;">
+          <p>
+            Você pode usar callbacks como beforeEnter e beforeLeave para executar ações ao entrar ou sair de uma rota:
+          </p>
+          <div
+            style="padding: 16px; background-color: rgb(36, 36, 36); width: fit-content; color: white; border-radius: 4px;">
+            <pre>
+              <code>
+{
+  path: '/dashboard/',
+  url: './pages/dashboard.html',
+  beforeEnter: function (routeTo, routeFrom, resolve, reject) {
+    if (userLoggedIn) {
+      resolve(); // Permitir acesso
+    } else {
+      reject(); // Bloquear acesso
+      app.router.navigate('/login/'); // Redirecionar para login
+    }
+  },
+}                
+              </code>
+            </pre>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  export default () => {
+    return $render;
+  };
+</script>
